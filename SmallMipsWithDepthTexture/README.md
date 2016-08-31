@@ -1,10 +1,14 @@
-# 24-bit Depth Textures with Small Mips
+# Depth-Stencil Textures with Small Mips
 
-This test covers a bug with rendering with small mips of 24-bit depth texture.
+This test covers a bug with rendering with small mips with depth textures that
+also have stencil channels.
 The 2x2 and 1x1 mips of a 8x8 or larger depth texture seem to always come out
 as zero on AMD hardware. This was giving incorrect rendering in some WebGL
-and dEQP tests. A possible workaround is to use 32-bit depth formats instead,
-but this has some downside from the extra bandwidth.
+and dEQP tests. Both D24S8 and D32S8 were tested as problematic.
+
+A possible workaround is to use other formats specifically when rendering depth
+textures using multiple levels, but this has some downside from the extra bandwidth
+and copying.
 
 ### Correct rendering
 
