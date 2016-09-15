@@ -1,0 +1,1 @@
+#include "StencilBlit.fx"
